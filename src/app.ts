@@ -5,14 +5,12 @@ import express from "express";
 import { sequelize } from "./models";
 
 // Routes
-// import appointmentRoutes from "./routes/appointments";
+import appointmentRoutes from "./routes/appointments";
 import authRoutes from "./routes/auth";
-// import dentistRoutes from "./routes/dentists";
-// import scheduleRoutes from "./routes/schedules";
-// import serviceRoutes from "./routes/services";
-// import slotOptionRoutes from "./routes/slotOptions";
-// import slotRoutes from "./routes/slots";
-// import userRoutes from "./routes/users";
+import dentistRoutes from "./routes/dentists";
+import scheduleRoutes from "./routes/schedules";
+import serviceRoutes from "./routes/services";
+import userRoutes from "./routes/users";
 
 dotenv.config();
 
@@ -27,13 +25,11 @@ app.use(bodyParser.json());
 
 // Mount routes
 app.use("/auth", authRoutes);
-// app.use("/users", userRoutes);
-// app.use("/services", serviceRoutes);
-// app.use("/dentists", dentistRoutes);
-// app.use("/slot-options", slotOptionRoutes);
-// app.use("/schedules", scheduleRoutes);
-// app.use("/slots", slotRoutes);
-// app.use("/appointments", appointmentRoutes);
+app.use("/users", userRoutes);
+app.use("/services", serviceRoutes);
+app.use("/dentists", dentistRoutes);
+app.use("/schedules", scheduleRoutes);
+app.use("/appointments", appointmentRoutes);
 
 const PORT = process.env.PORT || 8000;
 
