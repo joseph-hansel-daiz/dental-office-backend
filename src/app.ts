@@ -17,10 +17,14 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000",
-    credentials: true,
+    origin: [
+      "http://localhost:3000",
+      "http://a4f4b374d524647e5992af36faa0f331-1120244756.ap-southeast-2.elb.amazonaws.com",
+    ],
+    credentials: true, // Allow cookies or authorization headers to be sent
   })
 );
+
 app.use(bodyParser.json());
 
 // Mount routes
